@@ -4,7 +4,7 @@ STM32 HAL库 外部缓冲区，实现数据缓冲功能，可用于UART，IIC，
 ## 实现原理：<br/>
 HAL 库 UART，SPI，IIC等外设的结构体句柄  [xx_HandleTypeDef] 几乎都有一个成员，RxXferCount 即 Rx传输计数器。此成员每接收一个字节，值就+1，Rx传输已完成回调调用之后，值就重新计数。由此值变化特性，就可以构建一个环形缓冲区！<br/>
 
-## 代码片段：<br/>
+## 用户代码片段：<br/>
 ```
 #include "peripheral_buff.h"
 

@@ -63,12 +63,12 @@ int main()
 移植RTOS，增加cpu利用率。
 
 ## debug：<br/>
-1.PeripheralBuffer_Init 返回 NULL：calloc生请内存失败，减小数值，或者修改 `startup_stm32fxx_hd.s` `Heap_Size` 值 [[Heap_Size]](https://blog.csdn.net/weixin_42518229/article/details/108574311)  <br/>
-2.`uart1_buffer`大小根据实际合理分配，如`PeripheralBuffer_Init`分配值大于`uart1_buffer`需检查每次读取长度！<br/>
-3.接收大文件需要更大缓冲区<br/>
+1.PeripheralBuffer_Init 返回 NULL：calloc生请内存失败，减小数值，或者修改 `startup_stm32fxx_hd.s` `Heap_Size` 值。 [[Heap_Size]](https://blog.csdn.net/weixin_42518229/article/details/108574311)  <br/>
+2.`uart1_buffer`大小根据实际合理分配，如`PeripheralBuffer_Init`分配值大于`uart1_buffer`需检查每次读取长度。<br/>
+3.接收大文件需要更大缓冲区。<br/>
 
 ## 编译
-由于项目构建于GCC编译器，而stm32常用开发环境为Keil，若源码编译失败，可尝试链接lib文件夹下的静态库，有GCC与Keil的两种版本可挑选使用！
+由于项目构建于GCC编译器，而stm32常用开发环境为Keil，若源码编译失败，可尝试链接lib文件夹下的静态库，有GCC与Keil的两种版本可挑选使用。
 
 ## 示例
-详细示例程序，见examples文件夹
+详细示例程序，见examples文件夹。

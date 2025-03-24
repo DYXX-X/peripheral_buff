@@ -106,12 +106,7 @@ int main()
 {
     HAL_Init();
     SystemClock_Config();
-
     USART1_Init(921600);
-
-    printf("%s\n", "\n***** 程序启动 *****\n");
-    printf("SYSCLK频率（系统时钟频率）： %ld\n", HAL_RCC_GetSysClockFreq());
-    printf("HCLK频率（AHB总线时钟频率）： %ld\n", HAL_RCC_GetHCLKFreq());
 
     PeripheralUart1Buf = PeripheralBuffer_Init((const uint16_t *)&uart1_handle.RxXferCount, 1024);
     if (!PeripheralUart1Buf)

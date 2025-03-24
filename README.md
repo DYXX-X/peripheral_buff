@@ -1,5 +1,6 @@
 # STM32外部缓冲区
-STM32 HAL库 外部缓冲区，实现数据缓冲功能，可用于UART，IIC，SPI...
+## 介绍：<br/>
+STM32 HAL库 外部缓冲区，实现数据缓冲功能，可用于UART，IIC，SPI...等外设，适用于数据不定时，不定量接收！
 
 ## 实现原理：<br/>
 HAL 库 UART，SPI，IIC等外设的结构体句柄  [xx_HandleTypeDef] 几乎都有一个成员，RxXferCount 即 Rx传输计数器。此成员每接收一个字节，值就+1，Rx传输已完成回调调用之后，值就重新计数。由此值变化特性，就可以构建一个环形缓冲区！<br/>
@@ -58,11 +59,11 @@ int main()
 单次发送500字节，间隔20ms，运行一小时，无卡顿，无损坏，无乱序！<br/>
 
 ## 性能瓶颈：<br/>
-分配合适的RAM数值。<br/>
-移植RTOS，增加cpu利用率。<br/>
+分配合适的RAM数值。
+移植RTOS，增加cpu利用率。
 
 ## debug：<br/>
-1.PeripheralBuffer_Init 返回 NULL：calloc生请内存失败，减小数值，或者修改 `startup_stm32fxx_hd.s` `Heap_Size` 值 [![Heap_Size]](https://blog.csdn.net/weixin_42518229/article/details/108574311)  <br/>
+1.PeripheralBuffer_Init 返回 NULL：calloc生请内存失败，减小数值，或者修改 `startup_stm32fxx_hd.s` `Heap_Size` 值 [[Heap_Size]](https://blog.csdn.net/weixin_42518229/article/details/108574311)  <br/>
 2.`uart1_buffer`大小根据实际合理分配，如`PeripheralBuffer_Init`分配值大于`uart1_buffer`需检查每次读取长度！
 3.接收大文件需要更大缓冲区
 

@@ -58,7 +58,8 @@ int main()
 单次发送500字节，间隔20ms，运行一小时，无卡顿，无损坏，无乱序！<br/>
 
 ## 性能瓶颈：<br/>
-分配合适的RAM数值。
+分配合适的RAM数值。<br/>
+移植RTOS，增加cpu利用率。<br/>
 
 ## debug：<br/>
 1.PeripheralBuffer_Init 返回 NULL：calloc生请内存失败，减小数值，或者修改 `startup_stm32fxx_hd.s` `Heap_Size` 值 [![Heap_Size]](https://blog.csdn.net/weixin_42518229/article/details/108574311)  <br/>
